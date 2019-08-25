@@ -120,8 +120,8 @@ $(document).ready(function () {
     $('#name').val(user)
     updateOnlineStatus()
     verifyHost()
-    $('#load_content').remove()
-    $('#nav').removeClass('hide')
-    $('#container').removeClass('hide')
+    // $('#load_content').remove()
+    // $('#nav').removeClass('hide')
+    // $('#container').removeClass('hide')
 
 })
