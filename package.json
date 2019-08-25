@@ -29,7 +29,8 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "create-pwa": "^2.0.1"
+    "create-pwa": "^2.0.1",
+    "purify-css": "^1.2.5"
   },
   "repository": {
     "type": "git",
