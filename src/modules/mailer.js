@@ -19,8 +19,8 @@ if (os.hostname() === 'EDUARDO') {
     transport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: process.env.HOST_VEDAS,
-            pass: process.env.PASS_VEDAS
+            user: process.env.HOST_EDU,
+            pass: process.env.PASS_EDU
         }
     })
 }
