@@ -11,11 +11,11 @@ if (location.hostname === "localhost") {
     chatUrl = 'http://localhost:3333/auth/chat'
     forgot = 'http://localhost:3333/forgot_password'
 } else {
-    homeUrl = 'http://localhost:3333/home'
-    loginUrl = 'http://localhost:3333/login'
-    registerUrl = 'http://localhost:3333/register'
-    chatUrl = 'http://localhost:3333/auth/chat'
-    forgot = 'http://localhost:3333/forgot_password'
+    homeUrl = 'https://realtime-chat-node.herokuapp.com/home'
+    loginUrl = 'https://realtime-chat-node.herokuapp.com/login'
+    registerUrl = 'https://realtime-chat-node.herokuapp.com/register'
+    chatUrl = 'https://realtime-chat-node.herokuapp.com/auth/chat'
+    forgot = 'https://realtime-chat-node.herokuapp.com/forgot_password'
 }
 
 function loadNav(page) {
