@@ -1,0 +1,15 @@
+.title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#forgot {
+    text-decoration: none;
+}
+
+.forgot_container {
+    display: flex;
+    justify-content: center;
+}

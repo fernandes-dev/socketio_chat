@@ -1,0 +1,21 @@
+.img {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.img img {
+    width: 320px;
+}
+
+.card {
+    padding-top: 60px;
+    text-align: center;
+    height: 500px;
+}
+
+@media(max-width: 425px) {
+    .img img {
+        width: 250px;
+    }
+}
