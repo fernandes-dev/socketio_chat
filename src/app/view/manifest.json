@@ -5,7 +5,7 @@
   "background_color": "#4bae4f",
   "display": "fullscreen",
   "orientation": "portrait",
-  "Scope": "/src",
+  "Scope": "https://realtime-chat-node.herokuapp.com/",
   "start_url": "https://realtime-chat-node.herokuapp.com/",
   "icons": [
     {
