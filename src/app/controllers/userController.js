@@ -95,7 +95,7 @@ router.post('/forgot_password', async (req, res) => {
         }, (err) => {
             if (err) {
                 console.log(err)
-                res.status(400).send({ error: 'Cannot send forgot password email' })
+                res.status(400).send({ error: 'Cannot send forgot password email', erro: err })
             }
             console.log(user.email)
             res.send()
