@@ -1,6 +1,11 @@
-const host = 'http://localhost:3333'
 
-let socket = io('http://localhost:3333')
+let host = 'http://localhost:3333'
+
+if (location.hostname !== "localhost") {
+    host = 'https://realtime-chat-node.herokuapp.com/'
+}
+
+let socket = io(host)
 
 function renderMessage(message) {
     $('#messages').append('<div class="message"><strong>' + message.author + '</strong>: ' + message.message + '</div>')
