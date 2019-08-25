@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const os = require('os')
 
-let db = ''
+let db
 
-if (os.hostname()==='EDUARDO') {
-    db = 'mongodb://localhost:27017/chat'
+if (os.hostname()=== process.env.LOCAL_NAME) {
+    db = process.env.DB_LOCAL
 } else {
-    db = ''
+    db = process.env.DB_ONLINE
 }
 
 mongoose.connect(db, {

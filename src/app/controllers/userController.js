@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 const mailer = require('../../modules/mailer')
 
-const authConfig = require('../../config/auth.json')
+// const authConfig = require('../../config/auth.json')
 
 const User = require('../models/user')
 
 const router = express.Router()
 
 function generateToken(params = {}) {
-    return jwt.sign(params, authConfig.secret, {
+    return jwt.sign(params, process.env.SECRET, {
         expiresIn: 86400
     })
 }
@@ -89,7 +89,7 @@ router.post('/forgot_password', async (req, res) => {
 
         mailer.sendMail({
             to: email,
-            from: 'eduardo.yugan@gmail.com',
+            from: process.env.MY_EMAIL,
             template: 'forgot_password',
             context: { token }
         }, (err) => {

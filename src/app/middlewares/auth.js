@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const authConfig = require('../../config/auth.json')
+// const authConfig = require('../../config/auth.json')
 
 module.exports = (req, res, next) => {
 
@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
     authHeader = authHeader.filter(v => v.includes('Bearer'))[0].split('=')[1]
 
-    jwt.verify(authHeader, authConfig.secret, (err, decoded) => {
+    jwt.verify(authHeader, process.env.SECRET, (err, decoded) => {
         if (err) return res.status(401).send({ error: 'Token invalid', token: authHeader })
 
         return next()
