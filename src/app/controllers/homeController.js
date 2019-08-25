@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
 
 router.post('/home', (req, res) => {
 
+    const { auth } = req.body
     try {
-        const { auth } = req.body
         if (!auth)
             res.send({ error: 'Page not found' })
         res.render('./templates/home.html')
