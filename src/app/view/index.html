@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/fav_icon.ico">
     <link rel='manifest' href='./manifest.json'>
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/load.css">
     <script defer src="assets/js/jquery.min.js"></script>
     <script defer src="assets/js/axios.min.js"></script>
     <script defer src="assets/js/index.js"></script>
@@ -35,8 +35,15 @@
 </head>
 
 <body>
-    <div id="nav"></div>
-    <div id="container"></div>
+
+    <div id="load_content">
+        <div id="load" class="spinner"></div>
+    </div>
+
+    <div class="hide" id="nav"></div>
+    <div class="hide" id="container"></div>
+
+    <link rel="stylesheet" href="assets/css/index.css">
 </body>
 
 </html>
