@@ -1,5 +1,5 @@
 
-let getHome, getLogin, postLogin, getRegister, postRegister, chatUrl, forgot,  signup, signin
+let getHome, getLogin, postLogin, getRegister, postRegister, chatUrl, forgot, signup, signin
 if (location.hostname === "localhost") {
     getHome = 'http://localhost:3333/home'
     getLogin = 'http://localhost:3333/sigin'
@@ -108,11 +108,12 @@ function verifyHost() {
 }
 
 $(document).ready(function () {
-    $("#nav").load('../templates/nav.html', function () {
-        document.getElementById('homelink').addEventListener('click', () => go(getHome))
-        document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
-        document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
-    })
+    // $("#nav").load('../templates/nav.html', function () {
+
+    // })
+    document.getElementById('homelink').addEventListener('click', () => go(getHome))
+    document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
+    document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
     $("#container").load('../templates/home.html')
     function updateOnlineStatus() {
         let condition = navigator.onLine ? "ONLINE" : "OFFLINE";
