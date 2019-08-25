@@ -2,18 +2,18 @@ const staticCache = "Socket.io 25-08-2019"
 
 //lista de arquivos que devem ser cacheados
 const files = [
-  './src/app/view/assets/css/bootstrap.min.css',
-  './src/app/view/assets/css/chat.css',
-  './src/app/view/assets/css/home.css',
-  './src/app/view/assets/css/index.css',
-  './src/app/view/assets/css/register_login.css',
-  './src/app/view/assets/js/axios.min.js',
-  './src/app/view/assets/js/bootstrap.min.js',
-  './src/app/view/assets/js/index.js',
-  './src/app/view/assets/js/jquery.min.js',
-  './src/app/view/assets/js/socketio.min.js',
-  './src/app/view/assets/js/userSocket.js',
-  './src/app/view/assets/img/node.png',
+  './assets/css/bootstrap.min.css',
+  './assets/css/chat.css',
+  './assets/css/home.css',
+  './assets/css/index.css',
+  './assets/css/register_login.css',
+  './assets/js/axios.min.js',
+  './assets/js/bootstrap.min.js',
+  './assets/js/index.js',
+  './assets/js/jquery.min.js',
+  './assets/js/socketio.min.js',
+  './assets/js/userSocket.js',
+  './assets/img/node.png',
 ]
 
 // Faz cache dos arquivos ao instalar 
