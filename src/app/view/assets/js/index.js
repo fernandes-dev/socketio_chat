@@ -10,8 +10,10 @@ if (location.hostname === "localhost") {
     getForgot = 'http://localhost:3333/forgot'
 } else {
     getHome = 'https://realtime-chat-node.herokuapp.com/home'
-    getLogin = 'https://realtime-chat-node.herokuapp.com/login'
-    getRegister = 'https://realtime-chat-node.herokuapp.com/register'
+    getLogin = 'https://realtime-chat-node.herokuapp.com/sigin'
+    postLogin = 'https://realtime-chat-node.herokuapp.com/login'
+    getRegister = 'https://realtime-chat-node.herokuapp.com/signup'
+    postRegister = 'https://realtime-chat-node.herokuapp.com/register'
     chatUrl = 'https://realtime-chat-node.herokuapp.com/auth/chat'
     getForgot = 'https://realtime-chat-node.herokuapp.com/forgot'
 }
