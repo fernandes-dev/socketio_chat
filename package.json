@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eduardo Fernandes",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -26,5 +26,16 @@
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
     "socket.io": "^2.2.0"
-  }
+  },
+  "devDependencies": {
+    "create-pwa": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn7polky/socketio_chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cn7polky/socketio_chat/issues"
+  },
+  "homepage": "https://github.com/cn7polky/socketio_chat#readme"
 }
