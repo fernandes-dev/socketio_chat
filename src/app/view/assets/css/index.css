@@ -1,6 +1,71 @@
-/* @import url('./bootstrap.min.css'); */
+/* INICIO CHAT CSS */
 
-/* @import url('./purified.css'); */
-@import url('./chat.css');
-@import url('./register_login.css');
-@import url('./home.css');
+@import url('./bootstrap.min.css');
+
+.area-messages {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+
+#messages {
+    word-wrap: break-word;
+    width: 100%;
+    height: 450px;
+    border: solid 2px yellowgreen;
+    padding: 10px;
+    margin: 20px;
+    overflow-y: scroll;
+}
+
+.form {
+    padding: 0 30px;
+}
+
+/* FIM CHAT CSS */
+
+/* INICIO HOME CSS */
+
+.img {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.img img {
+    width: 320px;
+}
+
+.card {
+    padding-top: 60px;
+    text-align: center;
+    height: 500px;
+}
+
+@media(max-width: 425px) {
+    .img img {
+        width: 250px;
+    }
+}
+
+/* FIM HOME CSS */
+
+/* INICIO REGISTER LOGIN CSS */
+
+.title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#forgot {
+    text-decoration: none;
+}
+
+.forgot_container {
+    display: flex;
+    justify-content: center;
+}
+
+/* FIM REGISTER LOGIN CSS */

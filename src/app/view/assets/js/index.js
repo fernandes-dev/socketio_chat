@@ -107,10 +107,10 @@ function verifyHost() {
         console.log('Host atual: ' + location.hostname)
 }
 
-$(document).ready(function () {
-    // $("#nav").load('../templates/nav.html', function () {
+const user = localStorage.getItem('name')
+$('#name').val(user)
 
-    // })
+$(document).ready(function () {
     document.getElementById('homelink').addEventListener('click', () => go(getHome))
     document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
     document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
@@ -119,8 +119,7 @@ $(document).ready(function () {
         let condition = navigator.onLine ? "ONLINE" : "OFFLINE";
         console.log(condition)
     }
-    const user = localStorage.getItem('name')
-    $('#name').val(user)
+
     updateOnlineStatus()
     verifyHost()
     $('#load_content').remove()
