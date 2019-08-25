@@ -86,7 +86,7 @@ function go(url, form = 0) {
         data: { auth: 'GO' },
         dataType: 'html'
     }).then(function (response) {
-        // console.log(response)
+        console.log(response)
         document.getElementById('container').innerHTML = response.data
         if (form)
             sendForm(form)
