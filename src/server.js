@@ -5,6 +5,7 @@ const app = express()
 const path = require('path')
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
+const compress = require('compression')
 
 require('dotenv').config({
     path: process.env.NODE_ENV === 'test' ? '.test.env' : '.env'
@@ -12,6 +13,7 @@ require('dotenv').config({
 
 console.log(process.env.APP_NAME)
 
+app.use(compress())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())

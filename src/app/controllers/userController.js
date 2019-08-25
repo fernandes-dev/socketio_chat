@@ -37,33 +37,55 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.get('/register', (req, res) => {
-    res.render('./templates/register.html')
+router.post('/signup', (req, res) => {
+
+    const { auth } = req.body
+
+    try {
+        if (!auth) {
+            console.log('parametro: ' + auth)
+            res.send(auth)
+        }
+        res.render('./templates/register.html')
+    } catch (error) {
+        res.send({ err: error })
+    }
 })
 
 router.post('/login', async (req, res) => {
 
     const { email, password } = req.body
 
-    const user = await User.findOne({ email }).select('+password')
+    try {
 
-    if (!user)
-        return res.send({ error: '<div class="alert alert-warning" role="alert">User not found</div>' })
+        const user = await User.findOne({ email }).select('+password')
 
-    if (!await bcrypt.compare(password, user.password))
-        return res.send({ error: '<div class="alert alert-danger" role="alert">Invalid password</div>' })
+        if (!user)
+            return res.send({ error: '<div class="alert alert-warning" role="alert">User not found</div>' })
 
-    user.password = undefined
-    res.send({
-        user,
-        token: generateToken({ id: user._id })
-    })
+        if (!await bcrypt.compare(password, user.password))
+            return res.send({ error: '<div class="alert alert-danger" role="alert">Invalid password</div>' })
 
-
+        user.password = undefined
+        res.send({
+            user,
+            token: generateToken({ id: user._id })
+        })
+    } catch (error) {
+        res.send({ err: error })
+    }
 })
 
-router.get('/login', (req, res) => {
-    res.render('./templates/login.html')
+router.post('/sigin', (req, res) => {
+    const { auth } = req.body
+
+    try {
+        if (!auth)
+            res.send({ error: 'Page not found' })
+        res.render('./templates/login.html')
+    } catch (error) {
+        res.send({ err: error })
+    }
 })
 
 router.post('/forgot_password', async (req, res) => {
@@ -95,18 +117,27 @@ router.post('/forgot_password', async (req, res) => {
         }, (err) => {
             if (err) {
                 console.log(err)
-                res.status(400).send({ error: 'Cannot send forgot password email', erro: err })
+                res.send({ error: 'Cannot send forgot password email', erro: err })
             }
             console.log(user.email)
             res.send()
         })
     } catch (error) {
-        res.status(400).send({ error: 'Error on forgot password, try again' })
+        res.send({ error: 'Error on forgot password, try again' })
     }
 })
 
-router.get('/forgot_password', (req, res) => {
-    res.render('./templates/forgot_password.html')
+router.post('/forgot', (req, res) => {
+
+    const { auth } = req.body
+
+    try {
+        if (!auth)
+            res.send({ err: 'Page not found' })
+        res.render('./templates/forgot_password.html')
+    } catch (error) {
+        res.send({ err: error })
+    }
 })
 
 router.post('/reset_password', async (req, res) => {

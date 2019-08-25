@@ -1,21 +1,19 @@
 
-let homeUrl = ''
-let loginUrl = ''
-let registerUrl = ''
-let chatUrl = ''
-let forgot = ''
+let getHome, getLogin, postLogin, getRegister, postRegister, chatUrl, forgot,  signup, signin
 if (location.hostname === "localhost") {
-    homeUrl = 'http://localhost:3333/home'
-    loginUrl = 'http://localhost:3333/login'
-    registerUrl = 'http://localhost:3333/register'
+    getHome = 'http://localhost:3333/home'
+    getLogin = 'http://localhost:3333/sigin'
+    postLogin = 'http://localhost:3333/login'
+    getRegister = 'http://localhost:3333/signup'
+    postRegister = 'http://localhost:3333/register'
     chatUrl = 'http://localhost:3333/auth/chat'
-    forgot = 'http://localhost:3333/forgot_password'
+    getForgot = 'http://localhost:3333/forgot'
 } else {
-    homeUrl = 'https://realtime-chat-node.herokuapp.com/home'
-    loginUrl = 'https://realtime-chat-node.herokuapp.com/login'
-    registerUrl = 'https://realtime-chat-node.herokuapp.com/register'
+    getHome = 'https://realtime-chat-node.herokuapp.com/home'
+    getLogin = 'https://realtime-chat-node.herokuapp.com/login'
+    getRegister = 'https://realtime-chat-node.herokuapp.com/register'
     chatUrl = 'https://realtime-chat-node.herokuapp.com/auth/chat'
-    forgot = 'https://realtime-chat-node.herokuapp.com/forgot_password'
+    getForgot = 'https://realtime-chat-node.herokuapp.com/forgot'
 }
 
 function loadNav(page) {
@@ -38,7 +36,7 @@ function sendForm(form) {
             console.log('Register')
             axios({
                 method: 'post',
-                url: registerUrl,
+                url: postRegister,
                 data: dados
             }).then(function (response) {
                 console.log(response)
@@ -51,7 +49,7 @@ function sendForm(form) {
             console.log('Login')
             axios({
                 method: 'post',
-                url: loginUrl,
+                url: postLogin,
                 data: dados
             }).then(function (response) {
                 // console.log(response.data.user.name)
@@ -83,8 +81,9 @@ function sendForm(form) {
 
 function go(url, form = 0) {
     axios({
-        method: 'get',
+        method: 'post',
         url: url,
+        data: { auth: 'GO' },
         dataType: 'html'
     }).then(function (response) {
         // console.log(response)
@@ -93,8 +92,8 @@ function go(url, form = 0) {
             sendForm(form)
         $('div label').addClass('font-weight-bold')
         $('#form_content').addClass('col-sm-6 col-md-6 col-lg-4')
-        if (url === loginUrl)
-            document.getElementById('forgot').addEventListener('click', () => go(forgot, '#forgot_password'))
+        if (url === getLogin)
+            document.getElementById('forgot').addEventListener('click', () => go(getForgot, '#forgot_password'))
         // console.log('loginnnn')
     }).catch(function (error) {
         console.log(error)
@@ -108,9 +107,9 @@ function verifyHost() {
 
 $(document).ready(function () {
     $("#nav").load('../templates/nav.html', function () {
-        document.getElementById('homelink').addEventListener('click', () => go(homeUrl))
-        document.getElementById('registerlink').addEventListener('click', () => go(registerUrl, '#register'))
-        document.getElementById('loginlink').addEventListener('click', () => { go(loginUrl, '#login') })
+        document.getElementById('homelink').addEventListener('click', () => go(getHome))
+        document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
+        document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
     })
     $("#container").load('../templates/home.html')
     function updateOnlineStatus() {

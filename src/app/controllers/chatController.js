@@ -7,7 +7,7 @@ router.use(authMiddleware)
 
 
 router.get('/chat', (req, res) => {
-    res.render('chat.html')
+    res.render('auth/chat.html')
 })
 
 module.exports = app => app.use('/auth', router)
