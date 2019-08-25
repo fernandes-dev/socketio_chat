@@ -28,11 +28,11 @@ if (os.hostname() === 'EDUARDO') {
 transport.use('compile', hbs({
     viewEngine: {
         extName: '.html',
-        partialsDir: 'src/resources/mail',
-        layoutsDir: 'src/resources/mail',
+        partialsDir: 'resources/mail',
+        layoutsDir: 'resources/mail',
         defaultLayout: 'forgot_password.html',
     },
-    viewPath: path.resolve('./src/resources/mail'),
+    viewPath: path.resolve('./resources/mail'),
     extName: '.html'
 }))
 
