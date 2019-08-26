@@ -12,6 +12,14 @@
     border-radius: 20px;
 }
 
+.message_content {
+    display: block;
+}
+
+.mymessage_content {
+    margin-right: 15px !important;
+}
+
 #messages {
     border-radius: 20px;
     word-wrap: break-word;
@@ -21,41 +29,85 @@
     overflow-y: scroll;
 }
 
-.message_content {
-    display: block;
-}
-
-.message_send {
-    background-color: #253341;
-    border-radius: 15px;
-    border: none;
-}
-
-.send_button {
-    background-color: #15202b;
-    border: solid 1px #19608e;
-    border-radius: 20px;
-    color: white;
-}
-
-@media (max-width: 425px) {
-    .button_send {
-        margin: 45%;
-    }
-}
-
-.input_message input:focus {
-    background-color: #15202b !important;
-    color: white !important;
-}
-
 .message {
     display: inline-block;
     background-color: #3d5466;
     color: #f5f6f7;
     border-radius: 20px 20px 20px 0;
     padding: 10px;
+    margin-top: 5px;
+}
+
+.mymessage {
+    display: inline-block;
+    background-color: #1da1f2;
+    color: #f5f6f7;
+    border-radius: 20px 20px 0 20px;
+    padding: 10px;
     margin: 5px 5px;
+}
+
+.message_send {
+    padding: 10px;
+    background-color: #253341;
+    border-radius: 20px;
+    border: none;
+}
+
+#name_short {
+    color: rgb(196, 196, 196);
+    font-size: 12px;
+    margin-left: 56px;
+}
+
+#myname_short {
+    color: rgb(196, 196, 196);
+    font-size: 12px;
+    margin-right: 56px;
+}
+
+.profile {
+    display: flex;
+    justify-content: start;
+    color: white;
+    border: solid 1px #19608e;
+    margin-top: 6px;
+    margin-right: 6px;
+    padding-left: 20px;
+    padding-top: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.myprofile {
+    display: flex;
+    justify-content: center;
+    color: white;
+    border: solid 1px #19608e;
+    margin-top: 2px;
+    padding-top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.send_button {
+    background-color: #15202b;
+    border: none;
+    color: white;
+}
+
+.send_button img {
+    width: 40px;
+    margin-bottom: 3px;
+}
+
+.input_message input:focus {
+    background-color: #15202b !important;
+    color: white !important;
+    border: solid 1px #1da1f2;
+    outline: none;
 }
 
 .form {
@@ -112,3 +164,31 @@
 }
 
 /* FIM FORGOT PASSWORD */
+
+/* BARRA DE ROLAGEM */
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: rgb(37, 37, 37);
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* BARRA DE ROLAGEM */

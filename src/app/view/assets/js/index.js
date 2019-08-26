@@ -139,6 +139,10 @@ $(document).ready(function () {
         console.log(condition)
     }
 
+    // document.getElementById('messages').addEventListener("scroll", function() {
+    //     $('')
+    // })
+
     updateOnlineStatus()
     verifyHost()
     $('#load_content').remove()

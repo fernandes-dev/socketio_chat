@@ -7,22 +7,66 @@ if (location.hostname !== "localhost") {
 
 let socket = io(host)
 
-function renderMessage(message) {
+
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function time() {
+    let date = new Date()
+    let time = {
+        hora: addZero(date.getHours()),
+        minuto: date.getMinutes(),
+        dia: addZero(date.getDay()),
+        mes: addZero(date.getMonth()),
+        ano: date.getFullYear()
+    }
+    return time
+}
+
+function renderMyMessage(message) {
+    let name = message.author.substr(0, 1)
+    console.log('genteeeee: '+name)
     $('#messages').append(`
-    <div class="message_content">
-        <div class="message"><strong>${message.author}</strong>: ${message.message}</div>
+    <div id="group_message">
+        <div class="mymessage_content d-flex justify-content-end">
+            <div class="mymessage">${message.message}</div>
+            <div class="myprofile">${name}</div>
+        </div>
+        <div class="mymessage_content d-flex justify-content-end">
+            <span id="myname_short">${message.author} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
+        </div>
     </div>
     `)
 }
 
+function renderOtherMessage(message) {
+    let name = message.author.substr(0, 1)
+    $('#messages').append(`
+    <div class="message_content d-flex justify-content-start">
+        <div class="profile">${name}</div>
+        <div class="message">${message.message}</div>
+    </div>
+    <span id="name_short">${message.author} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
+    `)
+}
+
 socket.on('previousMessage', function (messages) {
+    // console.log(messages)
     messages.forEach(message => {
-        renderMessage(message)
+        if (message.author !== localStorage.getItem('name')) {
+            renderOtherMessage(message)
+        } else {
+            renderMyMessage(message)
+        }
     })
 })
 
 socket.on('receivedMessage', function (message) {
-    renderMessage(message)
+    renderOtherMessage(message)
 })
 
 $('#send_message').submit(function (event) {
@@ -38,6 +82,6 @@ $('#send_message').submit(function (event) {
 
     console.log(messageObject)
     socket.emit('sendMessage', messageObject)
-    renderMessage(messageObject)
+    renderMyMessage(messageObject)
     $('input[name=message]').val('')
 })

@@ -26,20 +26,16 @@
     <div class="area-messages">
         <div id="messages"></div>
     </div>
-    <div class="form">
+    <div class="form-row d-flex justify-content-center">
         <div class="form-group">
             <form id="send_message" autocomplete="off">
-                <div class="row">
-                    <input hidden class="form-control" type="text" name="name" id="name">
-                    <div class="col-md-8 input_message">
-                        <input required class="form-control message_send" type="text" name="message" id="message"
-                            placeholder="Digite sua mensagem">
-                    </div>
-                    <div class="mt-1 button_send">
-                        <button type="submit" class="send_button">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
+                <input hidden type="text" name="name" id="name">
+                <div class="input_message">
+                    <input required class="message_send" type="text" name="message" id="message"
+                        placeholder="Digite sua mensagem">
+                    <button type="submit" class="send_button">
+                        <img src="../assets/send_ico.ico" alt="Enviar Mensagem">
+                    </button>
                 </div>
             </form>
         </div>
