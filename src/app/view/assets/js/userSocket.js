@@ -29,7 +29,7 @@ function time() {
 
 function renderMyMessage(message) {
     let name = message.author.substr(0, 1)
-    console.log('genteeeee: '+name)
+    let firstname = message.author.split(' ')
     $('#messages').append(`
     <div id="group_message">
         <div class="mymessage_content d-flex justify-content-end">
@@ -37,7 +37,7 @@ function renderMyMessage(message) {
             <div class="myprofile">${name}</div>
         </div>
         <div class="mymessage_content d-flex justify-content-end">
-            <span id="myname_short">${message.author} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
+            <span id="myname_short">${firstname[0]} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
         </div>
     </div>
     `)
@@ -45,12 +45,13 @@ function renderMyMessage(message) {
 
 function renderOtherMessage(message) {
     let name = message.author.substr(0, 1)
+    let firstname = message.author.split(' ')
     $('#messages').append(`
     <div class="message_content d-flex justify-content-start">
         <div class="profile">${name}</div>
         <div class="message">${message.message}</div>
     </div>
-    <span id="name_short">${message.author} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
+    <span id="name_short">${firstname} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
     `)
 }
 
