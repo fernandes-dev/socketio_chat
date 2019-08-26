@@ -38,7 +38,7 @@
     color: white;
 }
 
-input:focus {
+.input_message input:focus {
     background-color: #15202b !important;
     color: white !important;
 }
