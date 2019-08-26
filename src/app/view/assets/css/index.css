@@ -1,10 +1,6 @@
 @import url('./bootstrap.min.css');
 /* INICIO CHAT CSS */
 
-body {
-    background-color: #15202b;
-}
-
 .area-messages {
     background-color: #15202b;
     display: flex;
