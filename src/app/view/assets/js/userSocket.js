@@ -8,7 +8,11 @@ if (location.hostname !== "localhost") {
 let socket = io(host)
 
 function renderMessage(message) {
-    $('#messages').append('<div class="message"><strong>' + message.author + '</strong>: ' + message.message + '</div>')
+    $('#messages').append(`
+    <div class="message_content">
+        <div class="message"><strong>${message.author}</strong>: ${message.message}</div>
+    </div>
+    `)
 }
 
 socket.on('previousMessage', function (messages) {

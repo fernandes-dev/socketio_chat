@@ -1,21 +1,59 @@
+@import url('./bootstrap.min.css');
 /* INICIO CHAT CSS */
 
-@import url('./bootstrap.min.css');
+body {
+    background-color: #15202b;
+}
 
 .area-messages {
+    background-color: #15202b;
     display: flex;
     justify-content: center;
     height: 500px;
+    border: solid 1px #3d5466;
+    padding: 15px;
+    margin: 10px 5px 20px 5px;
+    border-radius: 20px;
 }
 
 #messages {
+    border-radius: 20px;
     word-wrap: break-word;
     width: 100%;
     height: 450px;
-    border: solid 2px yellowgreen;
-    padding: 10px;
-    margin: 20px;
+    padding: 2px;
     overflow-y: scroll;
+}
+
+.message_content {
+    display: block;
+}
+
+.message_send {
+    background-color: #253341;
+    border-radius: 15px;
+    border: none;
+}
+
+.send_button {
+    background-color: #15202b;
+    border: solid 1px #19608e;
+    border-radius: 20px;
+    color: white;
+}
+
+input:focus {
+    background-color: #15202b !important;
+    color: white !important;
+}
+
+.message {
+    display: inline-block;
+    background-color: #3d5466;
+    color: #f5f6f7;
+    border-radius: 20px 20px 20px 0;
+    padding: 10px;
+    margin: 5px 5px;
 }
 
 .form {
@@ -63,9 +101,12 @@
     text-decoration: none;
 }
 
-.forgot_container {
-    display: flex;
-    justify-content: center;
+/* FIM REGISTER LOGIN CSS */
+
+/* INICIO FORGOT PASSWORD */
+
+#load_token {
+    margin-top: 10px;
 }
 
-/* FIM REGISTER LOGIN CSS */
+/* FIM FORGOT PASSWORD */

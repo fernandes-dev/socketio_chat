@@ -1,5 +1,5 @@
 
-let getHome, getLogin, postLogin, getRegister, postRegister, chatUrl, forgot, signup, signin
+let getHome, getLogin, postLogin, getRegister, postRegister, chatUrl, getForgot, postForgot
 if (location.hostname === "localhost") {
     getHome = 'http://localhost:3333/home'
     getLogin = 'http://localhost:3333/sigin'
@@ -8,6 +8,7 @@ if (location.hostname === "localhost") {
     postRegister = 'http://localhost:3333/register'
     chatUrl = 'http://localhost:3333/auth/chat'
     getForgot = 'http://localhost:3333/forgot'
+    postForgot = 'http://localhost:3333/forgot_password'
 } else {
     getHome = 'https://realtime-chat-node.herokuapp.com/home'
     getLogin = 'https://realtime-chat-node.herokuapp.com/sigin'
@@ -16,6 +17,7 @@ if (location.hostname === "localhost") {
     postRegister = 'https://realtime-chat-node.herokuapp.com/register'
     chatUrl = 'https://realtime-chat-node.herokuapp.com/auth/chat'
     getForgot = 'https://realtime-chat-node.herokuapp.com/forgot'
+    postForgot = 'https://realtime-chat-node.herokuapp.com/forgot_password'
 }
 
 function loadNav(page) {
@@ -30,8 +32,16 @@ function sendAlert(message) {
     $('#status').html(message)
 }
 
+function removeAlert() {
+    // let alert = document.getElementById('status')
+    let alert = $('#status').html().length
+    if (alert > 0)
+        $('#status').html('')
+}
+
 function sendForm(form) {
     $(form).submit(function (event) {
+        removeAlert()
         event.preventDefault()
         let dados = $(this).serialize()
         if (form === '#register') {
@@ -41,7 +51,7 @@ function sendForm(form) {
                 url: postRegister,
                 data: dados
             }).then(function (response) {
-                console.log(response)
+                // console.log(response)
                 sendAlert(response.data.message)
                 document.getElementById('register').reset()
             }).catch(function (error) {
@@ -68,12 +78,16 @@ function sendForm(form) {
                 console.log(error)
             })
         } else if (form === '#forgot_password') {
+            removeAlert()
+            $('#load_token').addClass('spinner')
             axios({
                 method: 'post',
-                url: loginUrl,
+                url: postForgot,
                 data: dados
             }).then(function (response) {
-                console.log(response)
+                // console.log(response)
+                $('#load_token').removeClass('spinner')
+                sendAlert(response.data.message)
             }).catch(function (error) {
                 console.log(error)
             })
@@ -82,13 +96,14 @@ function sendForm(form) {
 }
 
 function go(url, form = 0) {
+    removeAlert()
     axios({
         method: 'post',
         url: url,
         data: { auth: 'GO' },
         dataType: 'html'
     }).then(function (response) {
-        console.log(response)
+        //console.log(response)
         document.getElementById('container').innerHTML = response.data
         if (form)
             sendForm(form)
@@ -111,9 +126,13 @@ const user = localStorage.getItem('name')
 $('#name').val(user)
 
 $(document).ready(function () {
-    document.getElementById('homelink').addEventListener('click', () => go(getHome))
-    document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
-    document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
+    const url_atual = window.location.href
+
+    if (url_atual !== chatUrl) {
+        document.getElementById('homelink').addEventListener('click', () => go(getHome))
+        document.getElementById('registerlink').addEventListener('click', () => go(getRegister, '#register'))
+        document.getElementById('loginlink').addEventListener('click', () => { go(getLogin, '#login') })
+    }
     $("#container").load('../templates/home.html')
     function updateOnlineStatus() {
         let condition = navigator.onLine ? "ONLINE" : "OFFLINE";

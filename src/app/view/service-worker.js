@@ -20,6 +20,7 @@ this.addEventListener("install", event => {
   event.waitUntil(
     caches.open(staticCache)
       .then(cache => {
+        console.log('Arquivos adicionados ao cache: '+files)
         return cache.addAll(files)
       })
   )

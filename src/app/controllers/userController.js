@@ -95,7 +95,7 @@ router.post('/forgot_password', async (req, res) => {
         const user = await User.findOne({ email })
 
         if (!user)
-            return res.status(400).send({ error: 'User not found' })
+            return res.send({ message: '<div class="alert alert-warning" role="alert">User not found</div>' })
 
         const token = crypto.randomBytes(20).toString('hex')
 
@@ -117,10 +117,12 @@ router.post('/forgot_password', async (req, res) => {
         }, (err) => {
             if (err) {
                 console.log(err)
-                res.send({ error: 'Cannot send forgot password email', erro: err })
+                res.send({ message: 'Cannot send forgot password email', erro: err })
             }
             console.log(user.email)
-            res.send()
+            res.send({
+                message: '<div class="alert alert-success" role="alert">Token enviado com sucesso. Verifique sua caixa de email</div>'
+            })
         })
     } catch (error) {
         res.send({ error: 'Error on forgot password, try again' })

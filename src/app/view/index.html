@@ -9,7 +9,6 @@
     <link rel='manifest' href='./manifest.json'>
     <style>
         .spinner {
-            margin-top: 230px;
             border: 5px solid rgba(0, 0, 0, .1);
             border-left-color: #22b363;
             border-radius: 50%;
@@ -23,6 +22,7 @@
         }
 
         #load_content {
+            margin-top: 230px;
             display: flex;
             justify-content: center
         }
@@ -34,7 +34,7 @@
         }
     </style>
     <script defer src="assets/js/jquery.min.js"></script>
-    <script defer src="assets/js/axios.min.js"></script>
+    <script async src="assets/js/axios.min.js"></script>
     <script defer src="assets/js/index.js"></script>
     <script defer src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -88,8 +88,25 @@
         </nav>
     </div>
     <div class="hide" id="container"></div>
-
+    <div class="d-flex justify-content-center m-2">
+        <div id="load_token"></div>
+        <div id="status"></div>
+    </div>
     <link rel="stylesheet" href="assets/css/index.css">
+    <script>
+        let authHeader = (document.cookie || '').split(';')
+        if (!authHeader[0].length) {
+            console.log('Não está logado')
+        } else {
+            authHeader = authHeader.filter(v => v.includes('Bearer'))[0].split('=')[1]
+            console.log('Token: ' + authHeader)
+            if (location.hostname === "localhost") {
+                location.href = 'http://localhost:3333/auth/chat'
+            } else {
+                location.href = 'https://realtime-chat-node.herokuapp.com/auth/chat'
+            }
+        }
+    </script>
 </body>
 
 </html>
