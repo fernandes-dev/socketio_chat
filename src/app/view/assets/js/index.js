@@ -10,14 +10,14 @@ if (location.hostname === "localhost") {
     getForgot = 'http://localhost:3333/forgot'
     postForgot = 'http://localhost:3333/forgot_password'
 } else {
-    getHome = 'https://realtime-chat-node.herokuapp.com/home'
-    getLogin = 'https://realtime-chat-node.herokuapp.com/sigin'
-    postLogin = 'https://realtime-chat-node.herokuapp.com/login'
-    getRegister = 'https://realtime-chat-node.herokuapp.com/signup'
-    postRegister = 'https://realtime-chat-node.herokuapp.com/register'
-    chatUrl = 'https://realtime-chat-node.herokuapp.com/auth/chat'
-    getForgot = 'https://realtime-chat-node.herokuapp.com/forgot'
-    postForgot = 'https://realtime-chat-node.herokuapp.com/forgot_password'
+    getHome = 'https://sn-socket.herokuapp.com/home'
+    getLogin = 'https://sn-socket.herokuapp.com/sigin'
+    postLogin = 'https://sn-socket.herokuapp.com/login'
+    getRegister = 'https://sn-socket.herokuapp.com/signup'
+    postRegister = 'https://sn-socket.herokuapp.com/register'
+    chatUrl = 'https://sn-socket.herokuapp.com/auth/chat'
+    getForgot = 'https://sn-socket.herokuapp.com/forgot'
+    postForgot = 'https://sn-socket.herokuapp.com/forgot_password'
 }
 
 function loadNav(page) {

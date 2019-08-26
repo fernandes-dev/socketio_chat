@@ -2,7 +2,7 @@
 let host = 'http://localhost:3333'
 
 if (location.hostname !== "localhost") {
-    host = 'https://realtime-chat-node.herokuapp.com/'
+    host = 'https://sn-socket.herokuapp.com/'
 }
 
 let socket = io(host)
