@@ -38,6 +38,12 @@
     color: white;
 }
 
+@media (max-width: 425px) {
+    .button_send {
+        margin: 45%;
+    }
+}
+
 .input_message input:focus {
     background-color: #15202b !important;
     color: white !important;
