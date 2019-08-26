@@ -51,7 +51,7 @@ function renderOtherMessage(message) {
         <div class="profile">${name}</div>
         <div class="message">${message.message}</div>
     </div>
-    <span id="name_short">${firstname} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
+    <span id="name_short">${firstname[0]} - ${time().hora}:${time().minuto}h - ${time().dia}-${time().mes}-${time().ano}</span>
     `)
 }
 
