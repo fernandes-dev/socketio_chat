@@ -64,11 +64,13 @@ function sendForm(form) {
                 url: postLogin,
                 data: dados
             }).then(function (response) {
-                // console.log(response.data.user.name)
+                console.log(response.data.user._id)
                 if (response.data.user) {
+                    localStorage.setItem('id', response.data.user._id)
                     localStorage.setItem('name', response.data.user.name)
+                    localStorage.setItem('email', response.data.user.email)
                     let token = response.data.token
-                    document.cookie = `Bearer=${token}`
+                    document.cookie = `Bearer=${token}; expires=Thu, 12 Dec 4000 12:00:00 UTC`
                     document.location.replace(chatUrl)
                 } else {
                     sendAlert(response.data.error)
@@ -120,6 +122,8 @@ function go(url, form = 0) {
 function verifyHost() {
     if (location.hostname === "localhost")
         console.log('Host atual: ' + location.hostname)
+
+    console.log(localStorage.getItem('id'))
 }
 
 const user = localStorage.getItem('name')
@@ -127,6 +131,7 @@ $('#name').val(user)
 
 $(document).ready(function () {
     const url_atual = window.location.href
+    console.log('Url atual: '+url_atual)
 
     if (url_atual !== chatUrl) {
         document.getElementById('homelink').addEventListener('click', () => go(getHome))
@@ -138,10 +143,6 @@ $(document).ready(function () {
         let condition = navigator.onLine ? "ONLINE" : "OFFLINE";
         console.log(condition)
     }
-
-    // document.getElementById('messages').addEventListener("scroll", function() {
-    //     $('')
-    // })
 
     updateOnlineStatus()
     verifyHost()

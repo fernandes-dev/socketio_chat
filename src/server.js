@@ -25,18 +25,48 @@ app.set('view engine', 'html')
 
 require('./app/controllers/index')(app)
 
-let messages = []
+const messages = []
+const users = []
+const usersComplete = []
+
+
 
 io.on('connection', socket => {
-    console.log(`Socket conectado: ${socket.id}`)
+    console.log(`Socket conectado: ${socket.client.id}`)
+
+    socket.emit('connected', users)
 
     socket.emit('previousMessage', messages)
+
+    socket.on('conn', dados => {
+        if (users.indexOf(dados) <= -1) {
+            users.push(dados)
+        }
+        socket.broadcast.emit('connected', users)
+        console.log('usuario: ' + users)
+        
+    })
+
+    socket.on('disconnected', dados => {
+        if (users.indexOf(dados) >= 0) {
+            users.splice(users.indexOf(dados), 1)
+            console.log('Dados removidos:   ' + dados+' -- Usuarios atuais: '+users)
+            socket.broadcast.emit('disconnectedd', dados)
+        } else {
+            socket.emit('disconnectedd', users.indexOf(dados))
+        }
+    })
 
     socket.on('sendMessage', data => {
         messages.push(data)
 
         socket.broadcast.emit('receivedMessage', data)
     })
+
+    socket.on('disconnect', (reason) => {
+        console.log(reason)
+      })
+
 })
 
 server.listen(process.env.PORT || 3333)

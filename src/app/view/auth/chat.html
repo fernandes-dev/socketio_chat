@@ -12,34 +12,41 @@
             background-color: #15202b;
         }
     </style>
-    <script src="https://kit.fontawesome.com/2038d388f5.js"></script>
-    <script defer src="/assets/js/jquery.min.js"></script>
+    <title>Chat Socket.io</title>
+</head>
+
+<body>
+    <div id="logout">
+        <button class="btn btn-danger btn-sm">Sair</button>
+    </div>
+    <div class="contacts">
+        <div class="d-flex justify-content-center">
+            <div id="users" class="m-4"></div>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="area-messages">
+            <div id="messages"></div>
+        </div>
+        <div class="form_message">
+            <!-- <form id="send_message" autocomplete="off"> -->
+            <input hidden type="text" name="name" id="name">
+            <div class="input_message">
+                <input autocomplete="off" required class="message_send" type="text" name="message" id="message"
+                    placeholder="Digite sua mensagem">
+                <button id="send_form" type="button" class="send_button" name="send_message">
+                    <img class="icon_send" src="../assets/send_ico.svg" alt="">
+                </button>
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
     <script defer src="/assets/js/axios.min.js"></script>
     <script defer src="/assets/js/bootstrap.min.js"></script>
     <script defer src="/assets/js/socketio.min.js"></script>
     <script defer src="/assets/js/userSocket.js"></script>
     <script defer src="/assets/js/index.js"></script>
-    <title>Chat Socket.io</title>
-</head>
-
-<body>
-    <div class="area-messages">
-        <div id="messages"></div>
-    </div>
-    <div class="form-row d-flex justify-content-center">
-        <div class="form-group">
-            <form id="send_message" autocomplete="off">
-                <input hidden type="text" name="name" id="name">
-                <div class="input_message">
-                    <input required class="message_send" type="text" name="message" id="message"
-                        placeholder="Digite sua mensagem">
-                    <button type="submit" class="send_button">
-                        <img src="../assets/send_ico.ico" alt="Enviar Mensagem">
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 
 </html>

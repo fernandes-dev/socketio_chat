@@ -5,72 +5,89 @@
     background-color: #15202b;
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 450px;
     border: solid 1px #3d5466;
     padding: 15px;
-    margin: 10px 5px 20px 5px;
-    border-radius: 20px;
+    margin: 10px 5px;
 }
 
 .message_content {
     display: block;
 }
 
-.mymessage_content {
-    margin-right: 15px !important;
-}
+/* .mymessage_content {
+    margin-right: 15px;
+} */
 
 #messages {
-    border-radius: 20px;
     word-wrap: break-word;
     width: 100%;
-    height: 450px;
-    padding: 2px;
+    height: 400px;
     overflow-y: scroll;
 }
 
+.profile_e {
+    background-color: aqua;
+}
+
 .message {
+    cursor: pointer !important;
+    font-size: 15px;
     display: inline-block;
     background-color: #3d5466;
     color: #f5f6f7;
     border-radius: 20px 20px 20px 0;
-    padding: 10px;
+    padding: 0 15px 0 15px;
     margin-top: 5px;
 }
 
 .mymessage {
+    cursor: pointer !important;
+    font-size: 15px;
     display: inline-block;
     background-color: #1da1f2;
     color: #f5f6f7;
     border-radius: 20px 20px 0 20px;
-    padding: 10px;
+    padding: 0 15px 0 15px;
     margin: 5px 5px;
 }
 
-.message_send {
-    padding: 10px;
-    background-color: #253341;
-    border-radius: 20px;
-    border: none;
+.hide {
+    display: none !important;
+}
+
+.hour {
+    color: rgb(196, 196, 196);
+    font-size: 12px;
+}
+
+.user_name {
+    display: none;
+    padding: 13px;
+}
+
+.chat {
+    width: 100%;
+}
+
+.contacts {
+    display: none;
 }
 
 #name_short {
     color: rgb(196, 196, 196);
     font-size: 12px;
-    margin-left: 56px;
 }
 
 #myname_short {
     color: rgb(196, 196, 196);
     font-size: 12px;
-    margin-right: 56px;
 }
 
 .profile {
     display: flex;
     justify-content: start;
     color: white;
-    border: solid 1px #19608e;
     margin-top: 6px;
     margin-right: 6px;
     padding-left: 20px;
@@ -84,7 +101,6 @@
     display: flex;
     justify-content: center;
     color: white;
-    border: solid 1px #19608e;
     margin-top: 2px;
     padding-top: 10px;
     width: 50px;
@@ -92,15 +108,34 @@
     border-radius: 50%;
 }
 
+.message_send {
+    padding: 14px;
+    background-color: #253341;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 94%;
+    height: 14px;
+}
+
 .send_button {
     background-color: #15202b;
     border: none;
     color: white;
+    vertical-align: top;
+    margin-bottom: 3px;
 }
 
 .send_button img {
-    width: 40px;
-    margin-bottom: 3px;
+    height: 20px;
+    width: 20px;
+    color: #19608e;
+}
+
+.send_button img:hover {
+    /* border: solid 1px wheat; */
+    transform: rotate(10deg);
 }
 
 .input_message input:focus {
@@ -108,6 +143,20 @@
     color: white !important;
     border: solid 1px #1da1f2;
     outline: none;
+}
+
+.send_button:focus {
+    outline: none !important;
+}
+
+.send_button:active {
+    outline: none !important;
+}
+
+#logout {
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .form {
@@ -140,6 +189,49 @@
     }
 }
 
+@media(max-width: 772px) {
+    .area-messages {
+        height: 450px;
+    }
+    #messages {
+        height: 400px;
+    }
+    .message_send {
+        margin-left: 13px;
+        width: 92%;
+    }
+}
+
+@media(max-width: 616px) {
+    .message_send {
+        margin-left: 13px;
+        width: 88%;
+    }
+}
+
+@media(max-width: 425px) {
+    .message_send {
+        margin-left: 13px;
+        width: 86%;
+    }
+}
+
+@media(max-width: 375px) {
+    .message_send {
+        margin-left: 13px;
+        width: 83%;
+        height: 14px;
+    }
+}
+
+@media(max-width: 320px) {
+    .message_send {
+        margin-left: 12px;
+        width: 80%;
+        height: 14px;
+    }
+}
+
 /* FIM HOME CSS */
 
 /* INICIO REGISTER LOGIN CSS */
@@ -167,25 +259,13 @@
 
 /* BARRA DE ROLAGEM */
 
-/* width */
-
 ::-webkit-scrollbar {
     width: 4px;
 }
 
-/* Track */
-
-::-webkit-scrollbar-track {
-    background: rgb(37, 37, 37);
-}
-
-/* Handle */
-
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #1f2f40;
 }
-
-/* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
