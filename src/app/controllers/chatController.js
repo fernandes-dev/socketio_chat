@@ -3,7 +3,7 @@ const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
-// router.use(authMiddleware)
+router.use(authMiddleware)
 
 
 router.get('/chat', (req, res) => {
