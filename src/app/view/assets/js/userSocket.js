@@ -15,8 +15,8 @@ function addZero(i) {
     return i;
 }
 
-function scrolDown() {
-    $('#messages').animate({
+function scrolDown(element) {
+    $(element).animate({
         scrollTop: $(this).height() * 500
     }, 100)
 }
@@ -69,7 +69,7 @@ function togleClass(seconds) {
 }
 
 function renderMyMessage(message) {
-    scrolDown()
+    scrolDown('#messages')
     const firstname = message.author.split(' ')
     $('#messages').append(`
     <div class="group_message">
@@ -85,7 +85,6 @@ function renderMyMessage(message) {
 }
 
 function renderOtherMessage(message) {
-    // scrolDown()
     let firstname = message.author.split(' ')
     $('#messages').append(`
     <div class="message_content d-flex justify-content-start">
@@ -150,7 +149,13 @@ $('#logout').click(function () {
     location.href = host
 })
 
-$('#send_form').click(function (event) {
+$('#message').click(function(event) {
+    scrolDown('#body')
+    scrolDown('body')
+    scrolDown('html')
+})
+
+$('#send_message').submit(function (event) {
     event.preventDefault()
 
     let author = $('input[name=name]').val()
@@ -167,7 +172,7 @@ $('#send_form').click(function (event) {
         message,
         date: stamp.date,
         time: stamp.time,
-        seconds: addZero(date.getSeconds())
+        seconds: addZero(date.getMilliseconds())
     }
 
     socket.emit('sendMessage', messageObject)

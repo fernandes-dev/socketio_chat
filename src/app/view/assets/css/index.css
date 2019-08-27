@@ -1,11 +1,13 @@
 @import url('./bootstrap.min.css');
 /* INICIO CHAT CSS */
 
-html, body {
+/* html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-}
+    height: 540px;
+    width: 100%;
+    position: inherit;
+} */
 
 .area-messages {
     background-color: #15202b;
@@ -15,6 +17,7 @@ html, body {
     border: solid 1px #3d5466;
     padding: 15px;
     margin: 10px 5px;
+    position: relative;
 }
 
 .message_content {
@@ -142,14 +145,6 @@ html, body {
 .send_button img:hover {
     /* border: solid 1px wheat; */
     transform: rotate(10deg);
-}
-
-.input_message {
-    width: 100%;
-    height: 40px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .input_message input:focus {

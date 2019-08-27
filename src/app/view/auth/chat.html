@@ -15,7 +15,7 @@
     <title>Chat Socket.io</title>
 </head>
 
-<body>
+<body id="body">
     <div id="logout">
         <button class="btn btn-danger btn-sm">Sair</button>
     </div>
@@ -29,16 +29,16 @@
             <div id="messages"></div>
         </div>
         <div class="form_message">
-            <!-- <form id="send_message" autocomplete="off"> -->
-            <input hidden type="text" name="name" id="name">
-            <div class="input_message">
-                <input autocomplete="off" required class="message_send" type="text" name="message" id="message"
-                    placeholder="Digite sua mensagem">
-                <button id="send_form" type="button" class="send_button" name="send_message">
-                    <img class="icon_send" src="../assets/send_ico.svg" alt="">
-                </button>
-            </div>
-            <!-- </form> -->
+            <form id="send_message" autocomplete="off">
+                <input hidden type="text" name="name" id="name">
+                <div class="input_message">
+                    <input autocomplete="off" required class="message_send" type="text" name="message" id="message"
+                        placeholder="Digite sua mensagem">
+                    <button id="send_form" type="submit" class="send_button" name="send_message">
+                        <img class="icon_send" src="../assets/send_ico.svg" alt="">
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
     <script src="/assets/js/jquery.min.js"></script>
