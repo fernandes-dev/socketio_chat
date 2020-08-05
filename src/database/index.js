@@ -12,7 +12,8 @@ if (os.hostname()=== process.env.LOCAL_NAME) {
 mongoose.connect(db, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true
 });
 
 mongoose.Promise = global.Promise
