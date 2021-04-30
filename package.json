@@ -2,6 +2,7 @@
   "name": "socket_io",
   "version": "1.0.0",
   "description": "",
+  "node": ">=10.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
